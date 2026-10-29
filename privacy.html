@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>隐私政策 · 隐私体检</title>
+<meta name="description" content="隐私体检 App 的隐私政策：所有照片处理均在本机完成，不收集、不上传、不存储任何个人信息。">
+<style>
+  :root {
+    --ink: #1b1f1e;
+    --body: #3c4442;
+    --muted: #6b7674;
+    --accent: #157a6e;
+    --accent-soft: #eaf4f1;
+    --line: #e3e8e6;
+    --bg: #f6f7f6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 20px 64px;
+    background: var(--bg);
+    color: var(--body);
+    font: 16px/1.75 -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  header {
+    padding: 56px 0 28px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 32px;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 13px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 999px; padding: 6px 14px;
+    margin-bottom: 22px;
+  }
+  .brand svg { width: 15px; height: 15px; display: block; }
+  h1 { margin: 0 0 10px; font-size: 32px; line-height: 1.25; color: var(--ink); letter-spacing: -0.01em; }
+  .meta { font-size: 13px; color: var(--muted); }
+  h2 {
+    margin: 40px 0 12px; font-size: 19px; color: var(--ink);
+    padding-left: 13px; border-left: 3px solid var(--accent);
+  }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  strong { color: var(--ink); font-weight: 600; }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: 14px;
+    padding: 20px 22px; margin: 0 0 18px;
+  }
+  .card p:last-child { margin-bottom: 0; }
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    color: var(--accent); background: var(--accent-soft);
+    border-radius: 6px; padding: 3px 9px; margin-bottom: 10px;
+  }
+  .tag { font-weight: 600; color: var(--ink); }
+  footer {
+    margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line);
+    font-size: 13px; color: var(--muted);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  @media (max-width: 480px) {
+    body { padding: 0 16px 48px; font-size: 15px; }
+    h1 { font-size: 26px; }
+    header { padding: 40px 0 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3z"/>
+      <path d="M9.2 12.2l1.9 1.9 3.7-3.9"/>
+    </svg>
+    隐私体检 · PrivacyCheck
+  </div>
+  <h1>隐私政策</h1>
+  <p class="meta">生效日期：2026 年 10 月 30 日　|　版本 1.0.0</p>
+</header>
+
+<div class="card">
+  <div class="badge">一句话版本</div>
+  <p><strong>隐私体检不收集、不上传、不存储任何个人信息。</strong>你在 App 里做的每一次体检、预检、清洗，全部在这台设备上完成。</p>
+</div>
+
+<h2>一、我们是谁</h2>
+<p>「隐私体检」（PrivacyCheck）是一款 iOS 工具应用，用于在把照片发到社交平台、二手交易平台之前，
+检查并清除照片里可能暴露位置或身份的信息。</p>
+<p>本政策说明我们如何处理你在使用本 App 时涉及的信息。</p>
+
+<h2>二、我们不收集什么</h2>
+<p>我们<strong>不会</strong>收集、传输、存储或出售以下任何信息：</p>
+<ul>
+  <li><span class="tag">你的照片</span>：App 读取的图片仅存在于设备本地的临时目录中。</li>
+  <li><span class="tag">照片里的元数据</span>：GPS 坐标、设备型号、拍摄时间、署名等一律只在本机解析。</li>
+  <li><span class="tag">你的账号信息</span>：本 App 没有账号、没有登录、没有用户标识。</li>
+  <li><span class="tag">行为数据</span>：本 App 不含任何统计、广告或追踪 SDK，不记录你打开了哪个 Tab、清洗了哪张图。</li>
+  <li><span class="tag">通讯录、位置、剪贴板</span>：本 App 不申请也不读取这些权限。</li>
+</ul>
+
+<h2>三、App 与系统权限</h2>
+<div class="card">
+  <p><strong>相册读取（不需要权限）</strong><br>
+  选择照片时，App 使用的是 iOS 系统的照片选择器（PhotosPicker）。它由系统在 App 之外代为选取，
+  因此 App <strong>无法</strong>访问你相册里的其它内容，也不需要你授予相册读取权限。</p>
+</div>
+<div class="card">
+  <p><strong>相册写入（addOnly，仅在你主动点击「保存到相册」时申请）</strong><br>
+  当你把清洗后的图片存回相册时，App 才会请求相册写入权限，且申请的权限范围是
+  <strong>「仅添加」</strong>——App 不能读取、修改或删除你已有的照片。</p>
+</div>
+<div class="card">
+  <p><strong>网络</strong><br>
+  本 App 的代码中<strong>不包含任何网络请求</strong>。它不需要联网，也不会把任何数据发送出去。</p>
+</div>
+
+<h2>四、图片是怎么被处理的</h2>
+<ol>
+  <li>你选中的图片会被复制到 App 自己的临时目录（系统沙盒内，App 无法访问其它 App 的数据）。</li>
+  <li>App 在本机解析照片的 EXIF / GPS / 缩略图 / XMP 等信息，得出红、黄、绿三档结论。</li>
+  <li>清洗时，App 把照片解码成像素再重新编码，并只写回你明确选择保留的字段。</li>
+  <li>清洗后 App 会<strong>重新读一遍输出文件</strong>再做一次判定，确认没有残留。</li>
+  <li>所有中间文件都放在系统临时目录，系统在存储紧张时会自动回收；你也可以在「我的」页面随时手动清空。</li>
+</ol>
+
+<h2>五、第三方服务</h2>
+<p>本 App<strong>不集成任何第三方服务</strong>，包括但不限于分析统计、广告、崩溃上报、云存储或账号体系。</p>
+
+<h2>六、未成年人</h2>
+<p>本 App 不会有意收集任何人的个人信息，因此也不会有意收集未成年人的个人信息。
+如果你是未成年人的监护人，对本 App 有任何疑问，请通过下方方式联系我们。</p>
+
+<h2>七、政策变更</h2>
+<p>如果未来本 App 增加了需要联网的功能或新的权限，本政策会在 App 更新前更新，
+并在「我的」页面公示。你在 App 中安装的版本始终适用你安装时可查看到的政策版本。</p>
+
+<h2>八、联系我们</h2>
+<p>如果你对本政策或 App 的隐私处理有任何疑问，可以通过
+<a href="mailto:support@jieshao.live">support@jieshao.live</a> 联系我们。</p>
+
+<footer>
+  隐私体检 · PrivacyCheck v1.0.0　—　本政策适用于 iOS 17.0 及以上版本。<br>
+  也可访问 <a href="./support.html">支持页面</a>。
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>支持 · 隐私体检</title>
+<meta name="description" content="隐私体检 App 的支持页面：使用说明、常见问题与联系方式。">
+<style>
+  :root {
+    --ink: #1b1f1e; --body: #3c4442; --muted: #6b7674;
+    --accent: #157a6e; --accent-soft: #eaf4f1; --line: #e3e8e6; --bg: #f6f7f6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0 20px 64px; background: var(--bg); color: var(--body);
+    font: 16px/1.75 -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  header { padding: 56px 0 28px; border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+  .brand {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 13px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 999px; padding: 6px 14px; margin-bottom: 22px;
+  }
+  .brand svg { width: 15px; height: 15px; display: block; }
+  h1 { margin: 0 0 10px; font-size: 32px; line-height: 1.25; color: var(--ink); letter-spacing: -0.01em; }
+  .meta { font-size: 13px; color: var(--muted); }
+  h2 { margin: 40px 0 12px; font-size: 19px; color: var(--ink); padding-left: 13px; border-left: 3px solid var(--accent); }
+  h3 { margin: 22px 0 8px; font-size: 16px; color: var(--ink); }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  strong { color: var(--ink); font-weight: 600; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin: 0 0 18px; }
+  .card p:last-child { margin-bottom: 0; }
+  .badge { display: inline-block; font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-soft); border-radius: 6px; padding: 3px 9px; margin-bottom: 10px; }
+  .steps { counter-reset: s; list-style: none; padding: 0; }
+  .steps li { counter-increment: s; position: relative; padding-left: 40px; margin-bottom: 18px; }
+  .steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 2px;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    font-size: 13px; font-weight: 700; line-height: 26px; text-align: center;
+  }
+  .steps strong { display: block; color: var(--ink); margin-bottom: 2px; }
+  table { width: 100%; border-collapse: collapse; margin: 0 0 18px; font-size: 15px; }
+  th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  td:first-child { white-space: nowrap; font-weight: 600; color: var(--ink); }
+  footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  @media (max-width: 480px) {
+    body { padding: 0 16px 48px; font-size: 15px; }
+    h1 { font-size: 26px; }
+    header { padding: 40px 0 22px; }
+    table { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3z"/>
+      <path d="M9.2 12.2l1.9 1.9 3.7-3.9"/>
+    </svg>
+    隐私体检 · PrivacyCheck
+  </div>
+  <h1>支持</h1>
+  <p class="meta">版本 1.0.0　|　iOS 17.0 及以上</p>
+</header>
+
+<h2>三步用完</h2>
+<ol class="steps">
+  <li><strong>体检</strong>在「体检」页选几张要发的照片，App 会给出红 / 黄 / 绿三档结论，点开任意一张可以看到具体发现了什么。</li>
+  <li><strong>预检</strong>在「预检」页选目标平台（小红书、闲鱼、Instagram、微信朋友圈、微博），App 会逐条比对尺寸、体积、格式、比例、敏感元数据和水印。</li>
+  <li><strong>清洗</strong>在「清洗」页选方案后开始批处理。每张图清洗完，App 都会<strong>重新读一遍输出文件</strong>再判定是否干净。</li>
+</ol>
+
+<div class="card">
+  <div class="badge">三档怎么看</div>
+  <table>
+    <tr><th style="width:64px">绿档</th><td>没有发现会暴露身份或位置的信息，可以直接发。</td></tr>
+    <tr><th>黄档</th><td>有一些不致命但值得留意的信息，建议发之前处理一下。</td></tr>
+    <tr><th>红档</th><td>存在会直接暴露位置或身份的信息，建议清洗后再发。</td></tr>
+  </table>
+</div>
+
+<h2>常见问题</h2>
+
+<h3>照片会被上传吗？</h3>
+<p>不会。App 里没有任何网络请求代码，所有解析和清洗都在设备本机完成。</p>
+
+<h3>为什么照片 App 的「共享时移除定位」不够用？</h3>
+<p>它去掉的只是<strong>发给对方的那一份</strong>，相册里的原图仍然带着完整 GPS。对方如果把它存回相册，坐标就又回来了。</p>
+
+<h3>「处理成功」为什么还可能是脏的？</h3>
+<p>如果工具是「删字段」而不是「重新编码」，XMP、IPTC、Photoshop 数据块、MakerNote 这些结构上删不干净。
+本 App 采用<strong>解码 → 重新编码</strong>的方式，这些残留会随容器一起消失。</p>
+
+<h3>为什么小红书判「不合规」，Instagram 只判「需注意」？</h3>
+<p>因为平台行为不同。Instagram 和微信在上传时会在服务端剥离 EXIF，所以平台侧风险较低；
+但你直接发给别人的<strong>原文件</strong>不会自动被剥离，那才是真正的泄漏口。</p>
+
+<h3>「疑似水印」为什么不是百分百准确？</h3>
+<p>水印没有统一格式，无法用元数据判定。本 App 用图像结构做近似判断（边缘一条横向窄带的纹理密度显著高于中部，且边界有明显跳变），
+只给「疑似」结论，最终<strong>请以人工确认为准</strong>。</p>
+
+<h3>清洗后照片会模糊吗？</h3>
+<p>默认不会。除非你在「清洗」里手动设置了「目标体积上限」——这时 App 会先降质、必要时等比缩小，
+直到落进上限以内。不想改变画质就别设上限。</p>
+
+<h3>竖着拍的照片会转过来吗？</h3>
+<p>不会。清洗时默认把 EXIF 里的方向信息<strong>烘焙进画面</strong>，所以任何平台、任何阅读器都不会把照片转错。
+也可以在「清洗」里关掉这个选项，改为保留方向标记。</p>
+
+<h2>联系</h2>
+<p>遇到问题或者想要的功能，都欢迎写信到
+<a href="mailto:support@jieshao.live">support@jieshao.live</a>。</p>
+
+<footer>
+  隐私体检 · PrivacyCheck v1.0.0<br>
+  <a href="./privacy.html">隐私政策</a>
+</footer>
+
+</div>
+</body>
+</html>
