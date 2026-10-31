@@ -32,6 +32,11 @@
   ul, ol { margin: 0 0 14px; padding-left: 22px; }
   li { margin-bottom: 8px; }
   strong { color: var(--ink); font-weight: 600; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.88em; background: var(--accent-soft); color: var(--accent);
+    padding: 2px 6px; border-radius: 5px;
+  }
   .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin: 0 0 18px; }
   .card p:last-child { margin-bottom: 0; }
   .badge { display: inline-block; font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-soft); border-radius: 6px; padding: 3px 9px; margin-bottom: 10px; }
@@ -74,11 +79,14 @@
   <p class="meta">版本 1.0.0　|　iOS 17.0 及以上</p>
 </header>
 
-<h2>三步用完</h2>
+<h2>一条线：体检 → 编辑 → 清洗 → 复验</h2>
 <ol class="steps">
   <li><strong>体检</strong>在「体检」页选几张要发的照片，App 会给出红 / 黄 / 绿三档结论，点开任意一张可以看到具体发现了什么。</li>
-  <li><strong>预检</strong>在「预检」页选目标平台（小红书、闲鱼、Instagram、微信朋友圈、微博），App 会逐条比对尺寸、体积、格式、比例、敏感元数据和水印。</li>
-  <li><strong>清洗</strong>在「清洗」页选方案后开始批处理。每张图清洗完，App 都会<strong>重新读一遍输出文件</strong>再判定是否干净。</li>
+  <li><strong>编辑</strong>在「编辑」页选一张图，能改的字段全部列出来，点一下就地改：位置、设备、拍摄时间、署名、拍摄参数。
+    其中最有用的是<strong>「模糊位置」</strong>——把坐标粗化到街道级 / 城区级 / 市区级，保留大概在哪，但去掉精确到门牌的程度。
+    保存前会先列出改动清单，默认另存为副本，原图保留。</li>
+  <li><strong>清洗</strong>在「清洗」页选方案后开始批处理，把不想留的元数据一次抹干净。</li>
+  <li><strong>复验</strong>每张图处理完，App 都会<strong>重新读一遍输出文件</strong>再判定一次，确认改动真的生效、确实没有残留——不只相信「处理成功」这几个字。</li>
 </ol>
 
 <div class="card">
@@ -93,7 +101,32 @@
 <h2>常见问题</h2>
 
 <h3>照片会被上传吗？</h3>
-<p>不会。App 里没有任何网络请求代码，所有解析和清洗都在设备本机完成。</p>
+<p>不会。App 里没有任何网络请求代码，所有解析、编辑和清洗都在设备本机完成。</p>
+
+<h3>编辑和清洗有什么不一样？</h3>
+<p>清洗是<strong>全抹</strong>：不想留的一律删掉，包括位置。<br>
+编辑是<strong>只改你想改的那几项</strong>，其余原样保留。
+比如你只想去掉门牌级精度、又想让看图的人知道大概在哪个区——清洗做不到（删了连城市都没有了），编辑可以。</p>
+
+<h3>「模糊位置」分几档？会把照片挪到别的地方吗？</h3>
+<p>三档：<strong>街道级</strong>（约 11 米）、<strong>城区级</strong>（约 111 米）、<strong>市区级</strong>（约 1.1 公里）。
+它用的是<strong>截断</strong>而不是四舍五入——坐标只单向丢精度，不会被推到隔壁街区，误差也不会超过一档。
+海拔会跟着一起粗化到同一档（街道 1 米 / 城区 10 米 / 市区 100 米），因为留着 0.1 米精度的海拔等于楼层还锁着。
+想彻底去掉位置，用「清除位置」。</p>
+
+<h3>编辑会覆盖原图吗？</h3>
+<p>不会。默认<strong>另存为副本</strong>（文件名形如 <code>照片_已编辑.jpg</code>），原图一个字节都不动。
+编辑是破坏性操作，改错了随时可以回头。</p>
+
+<h3>为什么编辑后的文件里，没有原来那段 XMP？</h3>
+<p>写回时 App 会重新编码整个文件，原来那段 XMP 不会原样带过去。
+这是有意的取舍：<strong>XMP 里常藏着编辑历史和位置</strong>，原样搬运等于把位置偷偷带回去。
+保存前的确认页会明写这一条，不会悄悄处理。</p>
+
+<h3>我改了时区，拍摄时间为什么也跟着变了？</h3>
+<p>EXIF 里的「拍摄时间」是<strong>墙上时间</strong>，另有一个字段说明它属于哪个时区，两者一起才决定「那一刻」。
+所以改时区时 App 会把墙上时间一并换算，<strong>代表的那一瞬间保持不变</strong>——
+这样「相机时区设错了」这类修复才真的落到了文件上。</p>
 
 <h3>为什么照片 App 的「共享时移除定位」不够用？</h3>
 <p>它去掉的只是<strong>发给对方的那一份</strong>，相册里的原图仍然带着完整 GPS。对方如果把它存回相册，坐标就又回来了。</p>
@@ -101,10 +134,6 @@
 <h3>「处理成功」为什么还可能是脏的？</h3>
 <p>如果工具是「删字段」而不是「重新编码」，XMP、IPTC、Photoshop 数据块、MakerNote 这些结构上删不干净。
 本 App 采用<strong>解码 → 重新编码</strong>的方式，这些残留会随容器一起消失。</p>
-
-<h3>为什么小红书判「不合规」，Instagram 只判「需注意」？</h3>
-<p>因为平台行为不同。Instagram 和微信在上传时会在服务端剥离 EXIF，所以平台侧风险较低；
-但你直接发给别人的<strong>原文件</strong>不会自动被剥离，那才是真正的泄漏口。</p>
 
 <h3>「疑似水印」为什么不是百分百准确？</h3>
 <p>水印没有统一格式，无法用元数据判定。本 App 用图像结构做近似判断（边缘一条横向窄带的纹理密度显著高于中部，且边界有明显跳变），
